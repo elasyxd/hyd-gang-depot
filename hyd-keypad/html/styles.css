@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;700&display=swap');
+
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   outline: none;
+   -webkit-user-select: none;
+   user-select: none;
+}
+
+html,
+body {
+   width: 100vw;
+   height: 100vh;
+   background-color: rgba(0, 0, 0, 0) !important;
+   background: transparent !important;
+   font-family: 'Inter', sans-serif;
+   overflow: hidden;
+   margin: 0;
+   padding: 0;
+}
+
+#wrap {
+   display: none;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   justify-content: center;
+   align-items: center;
+   background: transparent !important;
+   background-color: rgba(0, 0, 0, 0) !important;
+}
+
+#PINcontainer {
+   width: 440px;
+   background: linear-gradient(180deg, rgba(15, 15, 15, 0.85) 0%, rgba(5, 5, 5, 0.98) 100%);
+   border: 1px solid rgba(193, 155, 101, 0.2);
+   border-radius: 25px;
+   padding: 30px 40px;
+   /* Reduced vertical padding */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   box-shadow: none;
+   position: relative;
+   overflow: hidden;
+}
+
+.header {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 25px;
+   /* Reduced from 35px */
+   padding-bottom: 12px;
+   border-bottom: 1px solid rgba(193, 155, 101, 0.1);
+}
+
+.title-container {
+   flex-grow: 1;
+}
+
+.main-title {
+   color: #f1cc92;
+   /* Brighter gold */
+   font-family: 'Orbitron', sans-serif;
+   font-size: 26px;
+   /* Biraz küçülterek sığmasını garantiledim */
+   font-weight: 700;
+   letter-spacing: 1px;
+   margin-bottom: 4px;
+   white-space: nowrap;
+   /* Yan yana durmasını sağlar */
+}
+
+.sub-title {
+   color: #888;
+   font-size: 13px;
+   font-family: 'Inter', sans-serif;
+}
+
+.close-btn {
+   background: rgba(255, 255, 255, 0.03);
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   color: #fff;
+   width: 38px;
+   height: 38px;
+   border-radius: 10px;
+   cursor: pointer;
+   font-size: 18px;
+}
+
+.pin-display-section {
+   width: 100%;
+   background: rgba(0, 0, 0, 0.2);
+   border: 1px solid rgba(193, 155, 101, 0.15);
+   /* Slightly thinner border */
+   border-radius: 20px;
+   padding: 20px 15px;
+   /* Reduced from 25px */
+   margin-bottom: 20px;
+   /* Reduced from 25px */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.pin-slots {
+   display: flex;
+   gap: 10px;
+   margin-bottom: 20px;
+}
+
+.pin-slot {
+   width: 38px;
+   height: 38px;
+   background: rgba(0, 0, 0, 0.3);
+   border: 1px solid rgba(255, 255, 255, 0.2);
+   border-radius: 8px;
+   transition: all 0.2s;
+}
+
+.pin-slot.filled {
+   background: #e1b36f;
+   border-color: #e1b36f;
+   box-shadow: 0 0 15px rgba(225, 179, 111, 0.4);
+}
+
+.pin-slot.active {
+   border-color: #cca46e;
+}
+
+.hint-text {
+   color: #666;
+   font-size: 13px;
+   font-weight: 700;
+   font-family: 'Inter', sans-serif;
+}
+
+.keypad-grid {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 12px;
+   /* Reduced from 15px */
+   margin-bottom: 25px;
+   /* Reduced from 35px */
+}
+
+.key-btn {
+   width: 105px;
+   height: 75px;
+   /* Reduced from 90px to make it more square */
+   background: rgba(20, 20, 20, 0.5);
+   border: 1px solid rgba(255, 255, 255, 0.05);
+   border-radius: 20px;
+   color: #fff;
+   font-size: 28px;
+   font-family: 'Inter', sans-serif;
+   font-weight: 700;
+   cursor: pointer;
+   transition: all 0.2s;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.key-btn:hover {
+   background: rgba(204, 164, 110, 0.1);
+   border-color: rgba(204, 164, 110, 0.3);
+}
+
+.key-btn.zero-btn {
+   position: relative;
+}
+
+.key-btn.zero-btn span {
+   position: relative;
+   display: inline-block;
+}
+
+.key-btn.zero-btn span::after {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 70%;
+   height: 3px;
+   background: #fff;
+   transform: translate(-50%, -50%) rotate(-45deg);
+   pointer-events: none;
+}
+
+.key-btn:active {
+   transform: scale(0.95);
+}
+
+.key-btn:nth-child(10) {
+   /* SİL */
+   font-size: 18px;
+}
+
+.confirm-btn {
+   width: 100%;
+   height: 70px;
+   background: rgba(0, 0, 0, 0.2);
+   border: 1px solid rgba(193, 155, 101, 0.2);
+   border-radius: 20px;
+   color: #666;
+   font-family: 'Orbitron', sans-serif;
+   font-size: 24px;
+   font-weight: 700;
+   letter-spacing: 3px;
+   cursor: pointer;
+   transition: all 0.3s;
+}
+
+.confirm-btn.active {
+   color: #cca46e;
+   border-color: #cca46e;
+   background: rgba(204, 164, 110, 0.05);
+}
