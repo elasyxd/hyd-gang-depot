@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse UI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div id="wrapper" style="display: none;">
+        <div class="container">
+            <!-- Header -->
+            <div class="header">
+                <div class="title-section">
+                    <div class="box-icon"><i class="fas fa-th-large"></i></div>
+                    <h1 id="ui-title">ENVANTERİN</h1>
+                </div>
+                <button id="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+
+            <!-- Weight Stats -->
+            <div class="stats-section">
+                <div class="stat-row">
+                    <div class="stat-header">
+                        <i class="fas fa-archive"></i>
+                        <span id="depo-label">Depo: 0.00kg / 1000kg</span>
+                    </div>
+                    <div class="progress-bg">
+                        <div id="depo-progress" class="progress-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-header">
+                        <i class="fas fa-user-lock"></i>
+                        <span id="sen-label">Sen: 0.00kg / 50kg</span>
+                    </div>
+                    <div class="progress-bg">
+                        <div id="sen-progress" class="progress-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls-section">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="EŞYA ARA">
+                </div>
+                <button id="toggle-view-btn">DEPOYA DÖN</button>
+            </div>
+
+            <!-- Items -->
+            <div class="items-grid" id="items-grid">
+                <!-- JavaScript handles this -->
+            </div>
+        </div>
+
+        <!-- Quantity Modal -->
+        <div id="transfer-modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span id="modal-item-name">EŞYA ADI</span>
+                    <button id="close-modal"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <label>MİKTAR</label>
+                        <input type="number" id="transfer-amount" value="1" min="1">
+                    </div>
+                    <div class="quick-amounts">
+                        <button class="quick-btn" data-val="1">1</button>
+                        <button class="quick-btn" data-val="5">5</button>
+                        <button class="quick-btn" data-val="10">10</button>
+                        <button id="set-max-btn">MAX</button>
+                    </div>
+                    <button id="confirm-transfer-btn">EŞYAYI GÖNDER</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
